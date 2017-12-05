@@ -9,12 +9,27 @@
 @copyright:
 
 """
+import codecs
+import os
+import re
 
+from setuptools import setup, find_packages
 
 setup(
     name = "health_check",
     description = "Python Client for backend service checking",
-    version = __versionstr__,
+    url = "http://github.com/xuyaoqiang/health_check",
+    packages = find_packages(
+        where = '.',
+        exclude = ['tests', 'example.py']),
+    version = '0.0.1',
     author = "xuyaoqiang",
-    install_requires=install_requires,
+    install_requires = [
+        'requests',
+        'redis',
+        'pymongo',
+        'kafka',
+        'elasticsearch'
+    ]
 )
+
